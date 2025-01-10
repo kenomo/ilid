@@ -208,6 +208,18 @@ You are welcome to submit issues, send pull requests, or share some ideas with u
 ## ✍ Citation
 If you find __ILID__ useful to your work/research, please cite:
 ```bibtex
+@article{Moenck.2024,
+  title = {Industrial {{Language-Image Dataset}} ({{ILID}}): {{Adapting Vision Foundation Models}} for {{Industrial Settings}}},
+  author = {Moenck, Keno and Thieu, Duc Trung and Koch, Julian and Sch{\"u}ppstuhl, Thorsten},
+  year = {2024},
+  journal = {Procedia CIRP},
+  series = {57th {{CIRP Conference}} on {{Manufacturing Systems}} 2024 ({{CMS}} 2024)},
+  volume = {130},
+  pages = {250--263},
+  issn = {2212-8271},
+  doi = {10.1016/j.procir.2024.10.084}
+}
+
 @misc{Moenck.14.06.2024,
   author = {Moenck, Keno and Thieu, Duc Trung and Koch, Julian and Sch{\"u}ppstuhl, Thorsten},
   title = {Industrial Language-Image Dataset (ILID): Adapting Vision Foundation Models for Industrial Settings},

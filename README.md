@@ -22,7 +22,7 @@
 
 We present the **Industrial Language-Image Dataset (ILID)**, a small and web-crawled dataset containing language-image samples from various web catalogs, representing parts/components from the industrial domain.
 Currently, the dataset has `12.537` valid samples from five different web catalogs, including a diverse range of products ranging from standard elements small in size, like hinges, linear motion elements, bearings, or clamps, to larger ones, like scissor lifts, pallet trucks, etc. (s. [Samples](#️-samples) for an excerpt).
-In initial [studies](https://doi.org/10.48550/arXiv.2406.09637), we used different transfer learning approaches on [CLIP (Contrastive Language-Image Pretraining)](https://github.com/openai/CLIP) to enable a variety of downstream tasks from classification on object- and material-level to language-guided segmentation. 
+In initial [studies](https://doi.org/10.1016/j.procir.2024.10.084), we used different transfer learning approaches on [CLIP (Contrastive Language-Image Pretraining)](https://github.com/openai/CLIP) to enable a variety of downstream tasks from classification on object- and material-level to language-guided segmentation. 
 The generation of the dataset followed six steps: selecting suitable sources, web crawling, pre-filtering, processing, post-filtering, and a download stage.
 We have endeavored to take a step towards the use of VFM in machine vision applications by introducing the ILID to bring the industrial context into CLIP, while also demonstrating the effective self-supervised transfer learning from the dataset in our work.
 To date, our studies have only included using three of the five natural language labels, but we encourage you to use or extend the dataset in your own studies for further tasks and evaluation. You can find our training- and evaluation-related code at [kenomo/industrial-clip](https://github.com/kenomo/industrial-clip).
@@ -30,7 +30,7 @@ To date, our studies have only included using three of the five natural language
 On request, we provide the final post-processed metadata of the dataset to recreate it. Send an email to 📧 [Keno Moenck](mailto:keno.moenck@tuhh.de).
 
 ### 💡 Language-guided Segmentation
-Language-guided segmentation results given the prompt "collet" and "socket" compared to zero-shot CLIP under the same settings (s. [publication](https://doi.org/10.48550/arXiv.2406.09637) for more model and training details).
+Language-guided segmentation results given the prompt "collet" and "socket" compared to zero-shot CLIP under the same settings (s. [publication](https://doi.org/10.1016/j.procir.2024.10.084) for more model and training details).
 
 <img src="doc/segmentation_results.png" />
 

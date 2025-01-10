@@ -14,7 +14,7 @@
     Hamburg University of Technology (TUHH), Institute of Aircraft Production Technology (IFPT), Germany
   </p>
 
-  <h3 align="center">🧾 <a href="https://doi.org/10.48550/arXiv.2406.09637">10.48550/arXiv.2406.09637</a></h3>
+  <h3 align="center">🧾 <a href="https://doi.org/10.1016/j.procir.2024.10.084">10.1016/j.procir.2024.10.084</a></h3>
 
 </p>
 

@@ -1,6 +1,6 @@
 orjson==3.9.15
 Scrapy==2.11.1
-transformers==4.38.2
+transformers==4.48.0
 accelerate==0.28.0
 linetimer==0.1.5
 opencv-python==4.9.0.80

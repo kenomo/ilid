@@ -27,7 +27,7 @@ The generation of the dataset followed six steps: selecting suitable sources, we
 We have endeavored to take a step towards the use of VFM in machine vision applications by introducing the ILID to bring the industrial context into CLIP, while also demonstrating the effective self-supervised transfer learning from the dataset in our work.
 To date, our studies have only included using three of the five natural language labels, but we encourage you to use or extend the dataset in your own studies for further tasks and evaluation. You can find our training- and evaluation-related code at [kenomo/industrial-clip](https://github.com/kenomo/industrial-clip).
 
-On request, we provide the final post-processed metadata of the dataset to recreate it. Send an email to 📧 [Keno Moenck](mailto:keno.moenck@tuhh.de).
+On request, we provide the full dataset - send an email to 📧 [Keno Moenck](mailto:keno.moenck@tuhh.de). This repository contains the code that was used to create the dataset.
 
 ### 💡 Language-guided Segmentation
 Language-guided segmentation results given the prompt "collet" and "socket" compared to zero-shot CLIP under the same settings (s. [publication](https://doi.org/10.1016/j.procir.2024.10.084) for more model and training details).
@@ -72,58 +72,6 @@ The dataset has five labels per item, which follows the following structure:
   "source": "<<the source of the sample>>"
 }
 ```
-
-## 🏗 Getting Started
-On request, we provide ILID's metadata, which you can use to download the images; the language labels are already included in the provided `json` file. If you want to extend the dataset (add data from additional stores), follow the sections starting from [Writing a spider](#️-writing-a-spider). Otherwise, you can continue downloading the images from the provided ILID `json` file.
-The repository contains a `.devcontainer/devcontainer.json`, which contains all the necessary dependencies.
-
-### 📥 Download the ILID
-```bash
-python download.py \
-  --dataset ./data/ilid.json \
-  --folder ./data/images \
-  --image_width 512 \
-  --image_height 512
-```
-
-### 🕷️ Writing a Spider
-First, identify a suitable web source (and its product `sitemap.xml`) from which to crawl data. With the browser debug console, you can identify the relevant DOM elements from which to yield data. Then, you can use the [Scrapy shell](https://docs.scrapy.org/en/latest/topics/shell.html) to initially access a store and test if you found the correct elements.
-```
-scrapy shell https://uk.rs-online.com/web/p/tubing-and-profile-struts/7613313
-```
-
-Write a spider following the example given in [example/spider.py](example/spider.py). Then, run the spider using:
-```
-scrapy runspider <<shop>>/spider.py -O data/<<shop>>_raw.json
-```
-
-### 💻 Processing Steps
-1. Filter the data initially and remove, e.g., tradenames using the regex argument:
-```
-python pre-filtering.py \
-  --file ./data/<<shop>>_raw.json \
-  --output ./data/<<shop>>_prefiltered.json \
-  --regex "(ameise|proline|basic)"
-```
-2. Process the data. You need a [Hugging Face Access Token](https://huggingface.co/docs/hub/en/security-tokens) to get access to the `--model "meta-llama/Meta-Llama-3-8B-Instruct"`. If you only want to process a subset of the data, use the `--debug 0.1` argument to process, e.g., only a tenth of the data
-```
-python processing.py \
-  --file ./data/<<shop>>_prefiltered.json \
-  --output ./data/<<shop>>_processed.json \
-  --access_token "<<huggingface access token>>"
-```
-3. Apply post-filtering and assemble a combined dataset file from all processed shop data:
-```
-python post-filtering.py \
-  --file ./data/<<shop>>_processed.json \
-  --output ./data/<<shop>>_postfiltered.json
-python assemble.py \
-  --file ./data/<<shop>>_postfiltered.json \
-  --dataset ./data/dataset.json \
-  --source_tag "<<shop>>"
-```
-4. Finally, run the `download.py` as described [above](#-download-the-ilid).
-
 
 ## 🖼️ Samples
 Some samples from the dataset (source [MÄDLER GmbH](https://www.maedler.de/)):
